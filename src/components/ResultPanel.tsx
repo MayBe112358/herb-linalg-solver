@@ -105,9 +105,12 @@ export function ResultPanel({ A, b, colLabels, targetLabel, rowLabels }: Props) 
 
           {nn && !nn.found && (
             <p className="rounded-lg bg-amber-50 p-3 text-xs text-amber-800 dark:bg-amber-900/20 dark:text-amber-300">
-              ℹ {nn.reason}。此配方含负系数——可理解为先按正系数混合、再从中扣除负系数那部分药；
-              或等价地，直接按净草药用量配制（绕过该药中介）。仍是可实现的，
-              只是不是纯加法混合。
+              ⚠ {nn.reason}。此配方含<strong>负系数</strong>，能否物理实现取决于题目假设的混合方式
+              （原题未指定）：
+              <br />· 若允许从混合中<strong>扣减</strong>该药（如可分离的粉剂），则可行；
+              <br />· 若是<strong>液体/煎剂</strong>等不可逆混合，则该解无法直接实现；
+              <br />· 也可<strong>绕过该药</strong>，直接按净草药用量配制。
+              建议在答辩中讨论此假设。
             </p>
           )}
 

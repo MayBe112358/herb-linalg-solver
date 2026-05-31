@@ -38,12 +38,16 @@ export function AboutPage() {
       <Card title="关于本题的注意点">
         <ul className="list-disc space-y-2 pl-5 text-sm text-slate-700 dark:text-slate-200">
           <li>
-            系数可能为<strong>负数</strong>：可理解为先按正系数混合、再从中
-            <strong>扣除</strong>负系数那部分药；或等价地按净草药用量直接配制。
-            只要 b ∈ Col(A)，物理上都可实现；负系数只是说"非纯加法混合"。
+            系数可能为<strong>负数</strong>。负系数的物理诠释<strong>取决于混合方式</strong>，原题未指定，是一个开放问题：
+            <ul className="mt-1 list-[circle] space-y-0.5 pl-5 text-slate-600 dark:text-slate-400">
+              <li>若允许从混合中<strong>扣减</strong>（如粉剂可分离），则负系数可实现；</li>
+              <li>若是<strong>液体/煎剂</strong>等不可逆混合，则该解无法直接实现；</li>
+              <li>也可换个视角：直接按线性组合给出的<strong>净草药用量</strong>从原料配制，绕过该药中介。</li>
+            </ul>
           </li>
           <li>
-            解不唯一时给出的只是<strong>其中一组</strong>；工具会顺带搜索<strong>全加性解</strong>（所有系数 ≥ 0），便于挑选最直接的配方。
+            解不唯一时给出的只是<strong>其中一组</strong>；工具会顺带搜索<strong>全加性解</strong>（所有系数 ≥ 0），
+            如果存在，那就是无需扣减、最稳妥的配方。
           </li>
         </ul>
       </Card>
