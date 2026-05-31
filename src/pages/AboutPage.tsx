@@ -38,10 +38,12 @@ export function AboutPage() {
       <Card title="关于本题的注意点">
         <ul className="list-disc space-y-2 pl-5 text-sm text-slate-700 dark:text-slate-200">
           <li>
-            系数可能为<strong>负数</strong>：数学上成立，但"用量为负"在现实中不可实现。工具会做<strong>非负解检测</strong>并提示。
+            系数可能为<strong>负数</strong>：可理解为先按正系数混合、再从中
+            <strong>扣除</strong>负系数那部分药；或等价地按净草药用量直接配制。
+            只要 b ∈ Col(A)，物理上都可实现；负系数只是说"非纯加法混合"。
           </li>
           <li>
-            解不唯一时给出的只是<strong>其中一组</strong>；可结合非负约束挑选物理可行的配方。
+            解不唯一时给出的只是<strong>其中一组</strong>；工具会顺带搜索<strong>全加性解</strong>（所有系数 ≥ 0），便于挑选最直接的配方。
           </li>
         </ul>
       </Card>

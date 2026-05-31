@@ -34,9 +34,9 @@ export function GeneralSolutionExplorer({ particular, nullspace, colLabels }: Pr
         <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">通解探索器</span>
         <Badge tone="amber">{nullspace.length} 个自由参数</Badge>
         {allNonNeg ? (
-          <Badge tone="green">当前为非负配方 · 物理可实现</Badge>
+          <Badge tone="green">全加性配方 · 只需相加</Badge>
         ) : (
-          <Badge tone="rose">当前含负系数 · 物理不可实现</Badge>
+          <Badge tone="amber">含扣减项 · 需从混合中减去</Badge>
         )}
         <Button variant="ghost" className="ml-auto" onClick={() => setTs(nullspace.map(() => 0))}>
           重置为特解

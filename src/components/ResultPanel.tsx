@@ -57,7 +57,7 @@ export function ResultPanel({ A, b, colLabels, targetLabel, rowLabels }: Props) 
         )}
         {res.solvable && !res.unique && <Badge tone="amber">解不唯一（{res.freeCols.length} 个自由变量）</Badge>}
         {res.solvable && res.unique && <Badge tone="blue">唯一解</Badge>}
-        {nn && !nn.found && res.solvable && <Badge tone="amber">含负系数 · 物理不可实现</Badge>}
+        {nn && !nn.found && res.solvable && <Badge tone="amber">含扣减项（负系数）</Badge>}
       </div>
 
       <p className="text-xs text-slate-500">
@@ -105,7 +105,9 @@ export function ResultPanel({ A, b, colLabels, targetLabel, rowLabels }: Props) 
 
           {nn && !nn.found && (
             <p className="rounded-lg bg-amber-50 p-3 text-xs text-amber-800 dark:bg-amber-900/20 dark:text-amber-300">
-              ⚠ {nn.reason}。数学上可配制，但需要某些药为负用量，现实中不可实现。
+              ℹ {nn.reason}。此配方含负系数——可理解为先按正系数混合、再从中扣除负系数那部分药；
+              或等价地，直接按净草药用量配制（绕过该药中介）。仍是可实现的，
+              只是不是纯加法混合。
             </p>
           )}
 
